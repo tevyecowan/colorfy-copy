@@ -1,0 +1,146 @@
+<html>
+
+    <head>
+        <title>Colorfy</title>
+
+        <meta name="viewport" content="width=00, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="css/polaris.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="src/actions/optionsData.js"></script>
+    </head>
+    <body class="bg">
+        <div id="setup">
+            <div>
+                <h1 class="Polaris-Heading">Colorfy<img style="max-width: 20px; margin-left: 10px;" src="icons/color_wheel_128.png"></h1>
+            </div>
+            <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented presets">
+                <div class="Polaris-ButtonGroup__Item">
+                    <button id="save" type="button" class="Polaris-Button">
+                        <span class="Polaris-Button__Content">
+                            <span>Save</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="Polaris-ButtonGroup__Item">
+                    <button id="reset" type="button" class="Polaris-Button">
+                        <span class="Polaris-Button__Content">
+                            <span>Reset to default</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <h2 class="polaris-Heading">Presets</h2>
+            </div>
+            <div class="Polaris-ButtonGroup Polaris-ButtonGroup--segmented presets">
+                <div class="Polaris-ButtonGroup__Item">
+                    <button id="oldSchool" type="button" class="Polaris-Button">
+                        <span class="Polaris-Button__Content">
+                            <span>Old Editor</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="Polaris-ButtonGroup__Item">
+                    <button id="darkMode" type="button" class="Polaris-Button">
+                        <span class="Polaris-Button__Content">
+                            <span>Dark Mode</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <label for="dark-mode">Dark Mode: </label>
+            <input id="dark-mode" type="checkbox">
+            <p>this needs to be checked to make editor background dark.</p>
+        </div>
+        <div class="menuButtons">
+            <ul class="inline-list">
+                <li>
+                    <label for="cm-comment">cm-comment</label>
+                    <input class="css-values" type="color" id="cm-comment" name="cmcomment">
+                </li>
+                <li>
+                    <label for="cm-string">cm-string</label>
+                    <input class="css-values" type="color" id="cm-string" name="cmstring">
+                </li>
+                <li>
+                    <label for="cm-property">cm-property</label>
+                    <input class="css-values" type="color" id="cm-property" name="cmproperty">
+                </li>
+                <li>
+                    <label for="cm-liquid">cm-liquid</label>
+                    <input class="css-values" type="color" id="cm-liquid" name="cmliquid">
+                </li>
+                <li>
+                    <label for="cm-liquid-markup-delimiter">cm-liquid-markup-delimiter</label>
+                    <input class="css-values" type="color" id="cm-liquid-markup-delimiter" name="cmliquidmarkupdelimiter">
+                </li>
+                <li>
+                    <label for="cm-liquid-string">cm-liquid-string</label>
+                    <input class="css-values" type="color" id="cm-liquid-string" name="cmliquidstring">
+                </li>
+                <li>
+                    <label for="cm-liquid-filter">cm-liquid-filter</label>
+                    <input class="css-values" type="color" id="cm-liquid-filter" name="cmliquidfilter">
+                </li>
+                <li>
+                    <label for="cm-tag">cm-tag</label>
+                    <input class="css-values" type="color" id="cm-tag" name="cmtag">
+                </li>
+                <li>
+                    <label for="cm-bracket">cm-bracket</label>
+                    <input class="css-values" type="color" id="cm-bracket" name="cmbracket">
+                </li>
+                <li>
+                    <label for="cm-attribute">cm-attribute</label>
+                    <input class="css-values" type="color" id="cm-attribute" name="cmattribute">
+                </li>
+                <li>
+                    <label for="cm-qualifier">cm-qualifier</label>
+                    <input class="css-values" type="color" id="cm-qualifier" name="cmqualifier">
+                </li>
+                <li>
+                    <label for="cm-meta">cm-meta</label>
+                    <input class="css-values" type="color" id="cm-meta" name="cmmeta">
+                </li>
+                <li>
+                    <label for="cm-def">cm-def</label>
+                    <input class="css-values" type="color" id="cm-def" name="cmdef">
+                </li>
+                <li>
+                    <label for="cm-atom">cm-atom</label>
+                    <input class="css-values" type="color" id="cm-atom" name="cmatom">
+                </li>
+                <li>
+                    <label for="cm-liquid-method">cm-liquid-method</label>
+                    <input class="css-values" type="color" id="cm-liquid-method" name="cmliquidmethod">
+                </li>
+                <li>
+                    <label for="cm-variable-2">cm-variable-2</label>
+                    <input class="css-values" type="color" id="cm-variable-2" name="cmvariable2">
+                </li>
+                <li>
+                    <label for="cm-variable-3">cm-variable-3</label>
+                    <input class="css-values" type="color" id="cm-variable-3" name="cmvariable3">
+                </li>
+                <li>
+                    <label for="cm-keyword">cm-keyword</label>
+                    <input class="css-values" type="color" id="cm-keyword" name="cmkeyword">
+                </li>
+                <li>
+                    <label for="cm-number">cm-number</label>
+                    <input class="css-values" type="color" id="cm-number" name="cmnumber">
+                </li>     
+                <li>
+                    <label for="cm-error">cm-error</label>
+                    <input class="css-values" type="color" id="cm-error" name="cmerror">
+                </li>
+            </ul>
+            
+        </div>
+    </body>
+</html>

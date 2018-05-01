@@ -1,0 +1,252 @@
+.analyticAssist,
+.analyticAssist td {
+  background-color: #ffd8d5;
+}
+
+html {
+  min-width: 1000px;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #444444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th {
+  border: 1px solid #f2f2f2;
+}
+
+td {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+td input {
+  width: 40px;
+}
+
+td {
+  padding: 5px;
+  color: #444444;
+  border: none;
+}
+
+tbody, td {
+  background-color: #f9f9f9;
+}
+
+td:nth-child(1) {
+  padding-left: 15px;
+  padding-right: 0px;
+}
+
+input[type='checkbox']:checked {
+  background: #9C6ADE;
+}
+
+input[type='checkbox']:not(:checked) {
+  background: white;
+}
+
+.styled {
+  text-transform: uppercase;
+  color: white;
+  background: #9C6ADE;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: 400;
+  width: 200px !important;
+  border: none;
+}
+
+button.styled:hover {
+  color: white !important;
+  background: #8056b7 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.full {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.half {
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+#save {
+  background: #9C6ADE;
+  color: white;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+}
+
+#save:hover {
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#reset {
+  background: #ED6347;
+  color: white;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+}
+
+#reset:hover {
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.saveBtn {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.styled:hover {
+  color: #000;
+  border: none;
+}
+
+.mainDashCards, .secondaryDashCards {
+  display: inline-block;
+  width: 49%;
+}
+
+.sortable:hover {
+  cursor: -webkit-grab;
+}
+
+.ui-sortable-handle:hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 0px, rgba(255, 255, 255, 0.95) 0px 1px 2px inset;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.menuButtons>div {
+  float: left;
+  margin-left: 5px;
+}
+
+.mainDashCards h2, .secondaryDashCards h2, .options h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.menuButtons {
+  margin: 0 5%;
+}
+
+input[type="checkbox"], input[type="checkbox"]:checked::before {
+  box-shadow: none;
+}
+
+.secondaryContainer, .primaryContainer, tr.card {
+  background-color: #f9f9f9;
+}
+
+#setup {
+  margin: 20px 0 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#setup p {
+  margin: 15px auto;
+  width: 52%;
+}
+
+.showHideMain, .showHideSide {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Polaris-Heading {
+  display: inline;
+}
+
+.mainHead, .sideHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.menuButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.options {
+  display: inline-block;
+  width: 100%;
+}
+
+.menuButtons>div {
+  margin-bottom: 30px;
+}
+
+.optionMenu {
+  margin-top: 15px;
+}
+
+tr {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+tr .Polaris-TextStyle, .description {
+  width: 100%;
+  margin-left: 5px;
+}
+
+.presets {
+  margin-top: 15px;
+}
+
+.Polaris-Button {
+  min-height: unset !important;
+}
+.text-center {
+  text-align: center!important;
+}
+.text-right {
+  text-align: right!important;
+}
+.text-left {
+  text-align: left!important;
+}
+ul {
+    list-style: none;
+}
+.inline-list li {
+    display: inline-block;
+    text-align: center;
+    width: 24%;
+    margin: 0 0 25px 0;
+    padding-left: 10px;
+}
+.inline-list label {
+    display: block;
+}
