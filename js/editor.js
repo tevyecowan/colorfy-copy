@@ -18,11 +18,14 @@ function _applyCss() {
         var dmState = edit.darkMode;
         
         console.log(dmState)
-        if (dmState == true) {
-            $('body').addClass('theme-editor--dark');
-        }
+        
         
         var cssFile = document.styleSheets.length - 1;
+        
+        if (dmState == true) {
+            $('body').addClass('theme-editor--dark');
+            addCSSRule(document.styleSheets[cssFile], '.asset-search', 'background-color: inherit !important', 0);
+        }
         
         var i = 0;
         for (i = 0; i < classes.length; i++){
