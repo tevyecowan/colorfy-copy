@@ -17,9 +17,6 @@ function _applyCss() {
         
         var dmState = edit.darkMode;
         
-        console.log(dmState)
-        
-        
         var cssFile = document.styleSheets.length - 1;
         
         if (dmState == true) {
