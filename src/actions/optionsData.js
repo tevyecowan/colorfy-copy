@@ -24,6 +24,7 @@ function _updatePickers() {
         } else {
             $('#dark-mode').prop('checked', false);
         }
+        setTimeout(_updatePreview, 500);
     });
 }
 
@@ -34,6 +35,7 @@ function _checkStorage() {
                 return $(this).attr("id");
             }).toArray();
             var cssValue = [
+                "#212b36",
                 "#919eab",
                 "#de3618",
                 "#50248f",
@@ -53,7 +55,8 @@ function _checkStorage() {
                 "#50b83c",
                 "#9c6ade",
                 "#00848e",
-                "#bf0711"
+                "#bf0711",
+                "#ff5500"
             ];
             var css = [];
               css[0] = cssName;
@@ -69,9 +72,42 @@ function _checkStorage() {
     });
 }
 
+//Update the preview colours on page load
+function _updatePreview() {
+    
+    $('.css-values').each(function() {
+        var i = "." + $(this).prop("id");
+        var c = $(this).prop("value");
+        $(i).css("color", c);
+    })
+    if ($("#dark-mode").prop("checked") == true) {
+            $(".code-block").addClass("preview-dark_mode");
+        } else {
+            $(".code-block").removeClass("preview-dark_mode");
+        }
+}
+
+function _updateClassColour(cssClass, colour) {
+    $(cssClass).css("color", colour);
+}
+
 $(document).ready(function() {
-    _checkStorage();
+    _checkStorage;
     setTimeout(_updatePickers, 1000);
+    
+    $(".css-values").change(function(){
+        var i = "." + $(this).prop("id");
+        var c = $(this).prop("value");
+        $(i).css("color", c);
+    })
+    
+    $("#dark-mode").change(function(){
+        if ($("#dark-mode").prop("checked") == true) {
+            $(".code-block").addClass("preview-dark_mode");
+        } else {
+            $(".code-block").removeClass("preview-dark_mode");
+        }
+    })
     
 
     $('#save').on('click', function() {
@@ -105,6 +141,7 @@ $(document).ready(function() {
     $('#oldSchool').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
+                "#212b36",
                 "#aa5500",
                 "#aa1111",
                 "#50248f",
@@ -124,7 +161,8 @@ $(document).ready(function() {
                 "#008855",
                 "#770088",
                 "#116644",
-                "#ff0000"
+                "#ff0000",
+                "#ff5500"
             ];
             
             var ids = update.css[0];
@@ -135,12 +173,15 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', false);
+            
+            setTimeout(_updatePreview, 500);
         });
     });
     
     $('#darkMode').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
+                "#e0f5f5",
                 "#919EAB",
                 "#F49342",
                 "#9C6ADE",
@@ -160,7 +201,8 @@ $(document).ready(function() {
                 "#BBE5B3",
                 "#9c6ade",
                 "#EEC200",
-                "#DE3618"
+                "#DE3618",
+                "#ff5500"
             ];
             
             var ids = update.css[0];
@@ -171,6 +213,8 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', true);
+            
+            setTimeout(_updatePreview, 500);
         });
     });
     
@@ -185,5 +229,10 @@ $(document).ready(function() {
           $(this).text('Are you sure?');
         }
     });
+    
+    $('span').each(function() {
+        var t = $(this).prop("class");
+        $(this).prop('title', t);
+    })
     
 });

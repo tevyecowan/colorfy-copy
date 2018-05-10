@@ -60,6 +60,10 @@
         <div class="menuButtons">
             <ul class="inline-list">
                 <li>
+                    <label for="CodeMirror-code">CodeMirror-code</label>
+                    <input class="css-values" type="color" id="CodeMirror-code" name="CodeMirrorCode">
+                </li>
+                <li>
                     <label for="cm-comment">cm-comment</label>
                     <input class="css-values" type="color" id="cm-comment" name="cmcomment">
                 </li>
@@ -112,8 +116,8 @@
                     <input class="css-values" type="color" id="cm-def" name="cmdef">
                 </li>
                 <li>
-                    <label for="cm-atom">cm-atom</label>
-                    <input class="css-values" type="color" id="cm-atom" name="cmatom">
+                    <label for="cm-liquid-atom">cm-liquid-atom</label>
+                    <input class="css-values" type="color" id="cm-liquid-atom" name="cmliquidatom">
                 </li>
                 <li>
                     <label for="cm-liquid-method">cm-liquid-method</label>
@@ -139,8 +143,39 @@
                     <label for="cm-error">cm-error</label>
                     <input class="css-values" type="color" id="cm-error" name="cmerror">
                 </li>
+                <li>
+                    <label for="cm-string-2">cm-string-2</label>
+                    <input class="css-values" type="color" id="cm-string-2" name="cmstring2">
+                </li>
+                
             </ul>
             
+        </div>
+        <div class="code-block">
+            <p>
+                <span class="cm-comment">&#60;!--This is a preview of how the above colours will look in the Code editor. The following section covers "cm-bracket", "cm-tag", "cm-attribute", "cm-liquid-markup-delimiter", "cm-liquid", "cm-liquid-string", and "cm-liquid-method"--&#62;</span>
+            </p>
+            <p>
+                <span class="CodeMirror-matchingtag">
+                    <span class="cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"string"</span><span class="cm-bracket" >&gt;</span></span>
+                
+                <span class="cm-liquid-markup-delimiter">{%</span> <span class="cm-liquid-tag-name cm-liquid">section</span> <span class="cm-liquid-string">'string'</span> <span class="cm-liquid-markup-delimiter">%}</span>
+                
+                <span class="CodeMirror-matchingtag"><span class="cm-bracket">&lt;</span><span class="cm-tag">/div</span><span class="cm-bracket">&gt;</span></span>
+            </p>
+            <p>
+                <span class="cm-liquid-markup-delimiter">{%</span> <span class="cm-liquid-tag-name cm-liquid">if</span> <span class="cm-liquid">colorfy.</span><span class="cm-liquid-method">dark_mode</span> <span class="cm-liquid">==</span> <span class="cm-liquid">true</span> <span class="cm-liquid-markup-delimiter">%}</span><br>
+                &nbsp;&nbsp;<span class="cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"theme-editor--dark"</span><span class="cm-bracket">&gt;</span><span class="CodeMirror-code">If the check box for dark mode is checked the Code editor gets the class "theme-editor--dark" added to the body</span><span class="cm-bracket">&lt;</span><span class="cm-tag">/div</span><span class="cm-bracket">&gt;</span><br>
+                <span class="cm-liquid-markup-delimiter">{%</span> <span class="cm-liquid-endtag-name cm-liquid">endif</span> <span class="cm-liquid-markup-delimiter">%}</span>
+            </p>
+            <p>
+                <span class="cm-comment">&#60;!--The following section covers "cm-bracket", "cm-tag", "cm-attribute", "cm-liquid-markup-delimiter", "cm-liquid", "cm-liquid-string", and "cm-liquid-method" and can mostly be found in Javascript files--&#62;</span>
+            </p>
+            <p>
+                <span class="cm-variable">theme</span>.<span class="cm-property">Currency</span> <span class="cm-operator">=</span> (<span class="cm-keyword">function</span>() &#123;<br>
+                &nbsp;&nbsp;<span class="cm-keyword">var</span> <span class="cm-def">moneyFormat</span> <span class="cm-operator">=</span> <span class="cm-string">'$</span><span class="cm-liquid-markup-delimiter cm-liquid">{{</span><span class="cm-liquid-word cm-liquid-output-markup cm-liquid-variable cm-liquid">amount</span><span class="cm-liquid-markup-delimiter cm-liquid">}}</span><span class="cm-string">';</span><br>
+                &nbsp;&nbsp;<span class="cm-keyword">var</span> <span class="cm-def">placeholderRegex</span> <span class="cm-operator">=</span> <span class="cm-string-2">/\{\{\s*(\w+)\s*\}\}/</span>;
+            </p>
         </div>
     </body>
 </html>

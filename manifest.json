@@ -1,6 +1,6 @@
 {
   "name": "Colorfy",
-  "version": "0.0.1",
+  "version": "1.0",
   "manifest_version": 2,
   "description": "This extension will allow dark mode for Shopify code editor or custom CSS",
   "homepage_url": "https://support.shopify.com",

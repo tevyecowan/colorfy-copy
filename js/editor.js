@@ -1,3 +1,4 @@
+// Create new stylesheet for custom colours to be added to
 function _applyCss() {
     
     var ColorfyCss = (function() {
@@ -38,6 +39,7 @@ function _applyCss() {
     
 }
 
+// Add the custom colours to the stylesheet
 function addCSSRule(sheet, selector, rules, index) {
 	
 		sheet.insertRule(selector + '{' + rules + '}', sheet.cssRules.length);
