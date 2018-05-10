@@ -40,7 +40,8 @@
       ],
       "exclude_matches": [
         "https://*.myshopify.com/admin/themes/",
-        "https://*.myshopify.com/admin/themes"
+        "https://*.myshopify.com/admin/themes",
+        "https://*.myshopify.com/admin/themes/*/editor"
       ],
       "js": [
         "js/jquery/jquery.min.js",
