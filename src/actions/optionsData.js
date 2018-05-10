@@ -2,19 +2,20 @@ function saveData(savedCss, dmState) {
     chrome.storage.sync.set({
         "css": savedCss,
         "darkMode": dmState
-        
+
     }, function() {
-       console.log('Saved!') 
+       console.log('Saved!')
     });
 }
 
 function _updatePickers() {
     chrome.storage.sync.get(["css", "darkMode"], function(update) {
+      console.log(update.css);
         var ids = update.css[0];
         var values = update.css[1];
         var dmState = update.darkMode;
         var i = 0;
-        
+
         for (i = 0; i < values.length; i++){
             var element = document.getElementById(ids[i]);
             element.value = values[i];
@@ -30,7 +31,8 @@ function _updatePickers() {
 
 function _checkStorage() {
     chrome.storage.sync.get(["css", "darkMode"], function(edit) {
-        if (edit.css == undefined) {
+      console.log(edit);
+        if (edit.css === undefined) {
             var cssName = $('.css-values').map(function() {
                 return $(this).attr("id");
             }).toArray();
@@ -61,7 +63,7 @@ function _checkStorage() {
             var css = [];
               css[0] = cssName;
               css[1] = cssValue;
-            
+
             if (edit.darkMode == undefined) {
                 var darkMode = false;
             }
@@ -74,7 +76,7 @@ function _checkStorage() {
 
 //Update the preview colours on page load
 function _updatePreview() {
-    
+
     $('.css-values').each(function() {
         var i = "." + $(this).prop("id");
         var c = $(this).prop("value");
@@ -92,15 +94,15 @@ function _updateClassColour(cssClass, colour) {
 }
 
 $(document).ready(function() {
-    _checkStorage;
+    _checkStorage();
     setTimeout(_updatePickers, 1000);
-    
+
     $(".css-values").change(function(){
         var i = "." + $(this).prop("id");
         var c = $(this).prop("value");
         $(i).css("color", c);
     })
-    
+
     $("#dark-mode").change(function(){
         if ($("#dark-mode").prop("checked") == true) {
             $(".code-block").addClass("preview-dark_mode");
@@ -108,7 +110,7 @@ $(document).ready(function() {
             $(".code-block").removeClass("preview-dark_mode");
         }
     })
-    
+
 
     $('#save').on('click', function() {
 
@@ -131,13 +133,13 @@ $(document).ready(function() {
         var css = [];
           css[0] = cssName;
           css[1] = cssValue;
-        
+
         var darkMode = $('#dark-mode').prop('checked');
 
 
         saveData(css, darkMode);
     });
-    
+
     $('#oldSchool').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
@@ -164,7 +166,7 @@ $(document).ready(function() {
                 "#ff0000",
                 "#ff5500"
             ];
-            
+
             var ids = update.css[0];
             var i = 0;
 
@@ -173,11 +175,11 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', false);
-            
+
             setTimeout(_updatePreview, 500);
         });
     });
-    
+
     $('#darkMode').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
@@ -204,7 +206,7 @@ $(document).ready(function() {
                 "#DE3618",
                 "#ff5500"
             ];
-            
+
             var ids = update.css[0];
             var i = 0;
 
@@ -213,11 +215,11 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', true);
-            
+
             setTimeout(_updatePreview, 500);
         });
     });
-    
+
     $('#reset').on('click', function() {
         if ($(this).text() == 'Are you sure?') {
           chrome.storage.sync.remove(["css", "darkMode"], function() {
@@ -229,10 +231,10 @@ $(document).ready(function() {
           $(this).text('Are you sure?');
         }
     });
-    
+
     $('span').each(function() {
         var t = $(this).prop("class");
         $(this).prop('title', t);
     })
-    
+
 });
