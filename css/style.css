@@ -250,3 +250,29 @@ ul {
 .inline-list label {
     display: block;
 }
+
+.cm-liquid-tag-name {
+    font-weight: bold;
+}
+.cm-liquid-operator {
+    font-weight: bold;
+}
+.cm-liquid-endtag-name {
+    font-weight: bold;
+}
+.code-block {
+    margin: 50px;
+    padding: 10px 20px;
+    font-family: monospace, monospace;
+    font-size: 14px;
+    background-color: #f4f6f8;
+}
+.preview-dark_mode {
+    background-color: black;
+}
+.preview-dark_mode p{
+    color: #e0f5f5;
+}
+.CodeMirror-matchingtag {
+    background-color: rgba(255,150,0,0.3);
+}
