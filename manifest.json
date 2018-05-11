@@ -47,6 +47,11 @@
       "js": [
         "js/jquery/jquery.min.js",
         "js/editor.js"
+      ],
+      "exclude_globs": [
+        "*/editor*",
+        "*/editor",
+        "*/language"
       ]
     }
   ]
