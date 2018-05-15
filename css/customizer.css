@@ -1,0 +1,14 @@
+.diffy-section {
+  position: absolute!important;
+  z-index: 1;
+  top: 0;
+  width: 20px!important;
+  height: 20px!important;
+  padding: 0!important;
+  text-align: center;
+  background-color: #BBE5B3!important;
+  display: none!important;
+}
+.diffy-hover:hover .diffy-section {
+  display: inline-block!important;
+}
