@@ -12,3 +12,6 @@
 .diffy-hover:hover .diffy-section {
   display: inline-block!important;
 }
+.diffy-hover {
+  position: relative;
+}

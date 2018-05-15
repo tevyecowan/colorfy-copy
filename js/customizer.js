@@ -16,7 +16,6 @@ function _customizer() {
       file = url.concat(file);
       console.log(file);
       $(this).append(btn[0] + file + btn[1]);
-      $(this).css('position', 'relative');
       $(this).addClass("diffy-hover");
     }
   })
