@@ -58,7 +58,9 @@ function _checkStorage() {
                 "#9c6ade",
                 "#00848e",
                 "#bf0711",
-                "#ff5500"
+                "#ff5500",
+                "#212B36",
+                "#212B36"
             ];
             var css = [];
               css[0] = cssName;
@@ -164,7 +166,9 @@ $(document).ready(function() {
                 "#770088",
                 "#116644",
                 "#ff0000",
-                "#ff5500"
+                "#ff5500",
+                "#212B36",
+                "#212B36"
             ];
 
             var ids = update.css[0];
@@ -204,7 +208,51 @@ $(document).ready(function() {
                 "#9c6ade",
                 "#EEC200",
                 "#DE3618",
-                "#ff5500"
+                "#ff5500",
+                "#E0F5F5",
+                "#61afef"
+            ];
+
+            var ids = update.css[0];
+            var i = 0;
+
+            for (i = 0; i < cssValue.length; i++){
+                var element = document.getElementById(ids[i]);
+                element.value = cssValue[i];
+            };
+            $('#dark-mode').prop('checked', true);
+
+            setTimeout(_updatePreview, 500);
+        });
+    });
+
+    $('#atompreset').on('click', function() {
+        chrome.storage.sync.get(["css"], function(update) {
+            var cssValue = [
+                "#ABB2BF",
+                "#ABB2BF",
+                "#98C379",
+                "#C678DD",
+                "#61AFEF",
+                "#ABB2BF",
+                "#EEC200",
+                "#C678DD",
+                "#E06C75",
+                "#ABB2BF",
+                "#D19A66",
+                "#56B6C2",
+                "#56B6C2",
+                "#61AFEF",
+                "#F49342",
+                "#56B6C2",
+                "#FFC58B",
+                "#BBE5B3",
+                "#C678DD",
+                "#EEC200",
+                "#DE3618",
+                "#FF5500",
+                "#56B6C2",
+                "#61AFEF"
             ];
 
             var ids = update.css[0];
