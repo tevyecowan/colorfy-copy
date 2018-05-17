@@ -43,7 +43,7 @@ function _applyCss() {
           _cssHover($('._1f6E2'), 'fill');
           _cssHover($('._2Eqdn'), 'color');
           _cssHover($('.ui-nav__link--parent.ui-nav__link--parent.ui-button--link'), 'color');
-          _cssHover($('.ui-nav__link--parent.ui-nav__link--parent.ui-button--link'), 'color');
+          _cssHover($('..ui-nav__link--parent.ui-nav__link--parent'), 'color');
 
 
       }
