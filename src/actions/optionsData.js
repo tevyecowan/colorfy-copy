@@ -1,3 +1,6 @@
+/* Base Javascript for the Colorfy Chrome extension Settings page */
+
+// Save the current input values to the Chrome storage
 function saveData(savedCss, dmState) {
     chrome.storage.sync.set({
         "css": savedCss,
@@ -8,9 +11,10 @@ function saveData(savedCss, dmState) {
     });
 }
 
+// Grab the colour values in chrome storage and update the inputs
 function _updatePickers() {
     chrome.storage.sync.get(["css", "darkMode"], function(update) {
-      console.log(update.css);
+      // console.log(update.css);
         var ids = update.css[0];
         var values = update.css[1];
         var dmState = update.darkMode;
@@ -29,9 +33,10 @@ function _updatePickers() {
     });
 }
 
+// Check Chrome storage for values and set defaults if none are saved
 function _checkStorage() {
     chrome.storage.sync.get(["css", "darkMode"], function(edit) {
-      console.log(edit);
+      // console.log(edit);
         if (edit.css === undefined) {
             var cssName = $('.css-values').map(function() {
                 return $(this).attr("id");
@@ -91,9 +96,9 @@ function _updatePreview() {
         }
 }
 
-function _updateClassColour(cssClass, colour) {
-    $(cssClass).css("color", colour);
-}
+// function _updateClassColour(cssClass, colour) {
+//     $(cssClass).css("color", colour);
+// }
 
 $(document).ready(function() {
     _checkStorage();
@@ -142,6 +147,7 @@ $(document).ready(function() {
         saveData(css, darkMode);
     });
 
+    // Click function for Old school editor colours preset
     $('#oldSchool').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
@@ -184,6 +190,7 @@ $(document).ready(function() {
         });
     });
 
+    // Click function for Dark Mode editor colours preset
     $('#darkMode').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
@@ -226,6 +233,7 @@ $(document).ready(function() {
         });
     });
 
+    // Click function for Old school editor colours preset
     $('#atompreset').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
@@ -268,6 +276,7 @@ $(document).ready(function() {
         });
     });
 
+    // Default reset button function
     $('#reset').on('click', function() {
         if ($(this).text() == 'Are you sure?') {
           chrome.storage.sync.remove(["css", "darkMode"], function() {
