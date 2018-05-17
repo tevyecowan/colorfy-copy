@@ -28,6 +28,22 @@ function _applyCss() {
           $('body').addClass('theme-editor--dark');
           addCSSRule(document.styleSheets[cssFile], '.asset-search', 'background-color: inherit !important', 0);
           addCSSRule(document.styleSheets[cssFile], '.CodeMirror-lines', 'background-color: #0e1216 !important', 0);
+          $('.ui-nav__link--parent.ui-nav__link--parent')
+          .css('color', '#c4cdd5')
+          .hover(function() {
+              $(this).css('color', '#5c6ac4')
+          }, function(){
+            $(this).css('color', '#c4cdd5')
+          });
+          $('.ui-nav__link--parent.ui-nav__link--parent.ui-button--link')
+          .css('color', '#c4cdd5')
+          .hover(function() {
+              $(this).css('color', '#5c6ac4')
+          }, function(){
+            $(this).css('color', '#c4cdd5')
+          });
+          $('.ui-app-frame__aside').css('background-color', '#0e1216');
+
       }
 
       //Run through the custom colours and add css overrides to the stylesheet
