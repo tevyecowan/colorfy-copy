@@ -1,16 +1,19 @@
 .diffy-section {
   position: absolute!important;
   z-index: 1;
-  top: 0;
-  width: 20px!important;
-  height: 20px!important;
+  top: 12px;
+  left: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 40px!important;
+  height: 40px!important;
   padding: 0!important;
   text-align: center;
   background-color: #BBE5B3!important;
   display: none!important;
 }
 .diffy-hover:hover .diffy-section {
-  display: inline-block!important;
+  display: flex!important;
 }
 .diffy-hover {
   position: relative;
