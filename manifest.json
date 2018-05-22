@@ -53,6 +53,23 @@
         "*/editor",
         "*/language"
       ]
+    },
+    {
+      "matches": [
+        "https://*.myshopify.com/admin/themes/*/editor"
+      ],
+      "exclude_matches": [
+        "https://*.myshopify.com/admin/themes/",
+        "https://*.myshopify.com/admin/themes",
+        "https://*.myshopify.com/admin/themes/*/language"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/customizer.js"
+      ],
+      "css": [
+        "css/customizer.css"
+      ]
     }
   ]
 }
