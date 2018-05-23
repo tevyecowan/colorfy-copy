@@ -35,7 +35,7 @@ function _applyCss() {
       // Check if darkmode is enabled and add class and fix diffy button colour
       // if enabled
       if (dmState == true) {
-          $('html').addClass('theme-editor--dark');
+          $('main').addClass('theme-editor--dark');
           addCSSRule(document.styleSheets[cssFile], '.asset-search', 'background-color: inherit !important', 0);
           addCSSRule(document.styleSheets[cssFile], '.CodeMirror-lines', 'background-color: #0e1216 !important', 0);
           $('.ui-app-frame__aside').css('background-color', '#0e1216');
