@@ -54,5 +54,14 @@
         "*/language"
       ]
     }
-  ]
+  ],
+  "commands": {
+    "fullscreen": {
+      "suggested_key": {
+        "default": "Alt+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Fullscreen editor"
+    }
+  }
 }

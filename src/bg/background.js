@@ -34,3 +34,19 @@ chrome.extension.onConnect.addListener(function(port) {
 chrome.browserAction.onClicked.addListener(function(tab) {
   openOrFocusOptionsPage();
 });
+
+// Setting up listener for chrome commands
+chrome.commands.onCommand.addListener(function(command) {
+  try {
+    runFullscreen(command);
+  } catch (error){
+    console.log(`No action for ${command}`);
+  }
+});
+
+// Runs command javascript on the current tab
+function runFullscreen(name) {
+  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+    chrome.tabs.executeScript(tabs[0].id, {file: `/src/actions/${name}.js`})
+  })
+}
