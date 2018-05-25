@@ -1,10 +1,11 @@
 /* Base Javascript for the Colorfy Chrome extension Settings page */
 
 // Save the current input values to the Chrome storage
-function saveData(savedCss, dmState) {
+function saveData(savedCss, dmState, fsState) {
     chrome.storage.sync.set({
         "css": savedCss,
-        "darkMode": dmState
+        "darkMode": dmState,
+        "fullscreenMode": fsState
 
     }, function() {
        console.log('Saved!')
@@ -13,11 +14,12 @@ function saveData(savedCss, dmState) {
 
 // Grab the colour values in chrome storage and update the inputs
 function _updatePickers() {
-    chrome.storage.sync.get(["css", "darkMode"], function(update) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(update) {
       // console.log(update.css);
         var ids = update.css[0];
         var values = update.css[1];
         var dmState = update.darkMode;
+        var fsState = update.fullscreenMode;
         var i = 0;
 
         for (i = 0; i < values.length; i++){
@@ -28,6 +30,11 @@ function _updatePickers() {
             $('#dark-mode').prop('checked', true);
         } else {
             $('#dark-mode').prop('checked', false);
+        }
+        if (fsState == true) {
+            $('#fullscreen').prop('checked', true);
+        } else {
+            $('#fullscreen').prop('checked', false);
         }
         setTimeout(_updatePreview, 500);
     });
@@ -74,9 +81,12 @@ function _checkStorage() {
             if (edit.darkMode == undefined) {
                 var darkMode = false;
             }
+            if (edit.fullscreenMode == undefined) {
+                var fullscreenMode = false;
+            }
 
 
-            saveData(css, darkMode);
+            saveData(css, darkMode, fullscreenMode);
         }
     });
 }
@@ -142,9 +152,10 @@ $(document).ready(function() {
           css[1] = cssValue;
 
         var darkMode = $('#dark-mode').prop('checked');
+        var fullscreenMode = $('#fullscreen').prop('checked');
 
 
-        saveData(css, darkMode);
+        saveData(css, darkMode, fullscreenMode);
     });
 
     // Click function for Old school editor colours preset
@@ -185,6 +196,7 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', false);
+            $('#fullscreen').prop('checked', false);
 
             setTimeout(_updatePreview, 500);
         });
@@ -228,6 +240,7 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', true);
+            $('#fullscreen').prop('checked', false);
 
             setTimeout(_updatePreview, 500);
         });
@@ -271,6 +284,7 @@ $(document).ready(function() {
                 element.value = cssValue[i];
             };
             $('#dark-mode').prop('checked', true);
+            $('#fullscreen').prop('checked', false);
 
             setTimeout(_updatePreview, 500);
         });

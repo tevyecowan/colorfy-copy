@@ -13,12 +13,14 @@ function _applyCss() {
     return style.ColorfyCss;
   })();
 
-  chrome.storage.sync.get(["css", "darkMode"], function(edit) {
+  chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(edit) {
       var classes = edit.css[0];
 
       var values = edit.css[1];
 
       var dmState = edit.darkMode;
+
+      var fsState = edit.fullscreenMode;
 
       var cssFile = document.styleSheets.length - 1;
 
@@ -46,6 +48,11 @@ function _applyCss() {
           _cssHover($('.ui-nav__link--parent.ui-nav__link--parent'), 'color');
 
 
+      }
+
+      // check if fullscreenmode is enabled and add class to make editor load fullscreen
+      if (fsState == true) {
+        $('html').addClass('fullscreen-mode');
       }
 
       //Run through the custom colours and add css overrides to the stylesheet
