@@ -53,32 +53,33 @@ function _checkStorage() {
                 return $(this).data("css");
             }).toArray();
             var cssValue = [
-                "#212b36",
-                "#919eab",
-                "#de3618",
-                "#50248f",
-                "#50248f",
-                "#212b36",
-                "#00848e",
-                "#9c6ade",
-                "#212b36",
-                "#212b36",
-                "#108043",
-                "#00848e",
-                "#212b36",
-                "#108043",
-                "#de3618",
-                "#202e78",
-                "#c05717",
-                "#50b83c",
-                "#9c6ade",
-                "#00848e",
-                "#bf0711",
-                "#ff5500",
-                "#212B36",
-                "#212B36",
-                "#f4f6f8",
-                "#000000"
+                "#212b36", //CodeMirror-code
+                "#919eab", //cm-comment
+                "#de3618", //cm-string
+                "#50248f", //cm-property
+                "#50248f", //cm-liquid
+                "#212b36", //cm-liquid-markup-delimiter
+                "#00848e", //cm-liquid-string
+                "#9c6ade", //cm-liquid-filter
+                "#212b36", //cm-tag
+                "#212b36", //cm-bracket
+                "#108043", //cm-attribute
+                "#00848e", //cm-qualifier
+                "#212b36", //cm-meta
+                "#108043", //cm-def
+                "#de3618", //cm-liquid-atom
+                "#202e78", //cm-liquid-method
+                "#c05717", //cm-variable-2
+                "#50b83c", //cm-variable-3
+                "#9c6ade", //cm-keyword
+                "#00848e", //cm-number
+                "#bf0711", //cm-error
+                "#ff5500", //cm-string-2
+                "#212B36", //cm-operator
+                "#212B36", //cm-variable
+                "#f4f6f8", //Active line background Colour
+                "#000000", //Cursor colour
+                "#3300aa" //cm-builtin
             ];
             var css = [];
               css[0] = cssName;
@@ -173,32 +174,33 @@ $(document).ready(function() {
     $('#oldSchool').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
-                "#212b36",
-                "#aa5500",
-                "#aa1111",
-                "#50248f",
-                "#212b36",
-                "#212b36",
-                "#228811",
-                "#212b36",
-                "#117700",
-                "#999977",
-                "#0000cc",
-                "#555555",
-                "#555555",
-                "#0000ff",
-                "#221199",
-                "#202e78",
-                "#0055aa",
-                "#008855",
-                "#770088",
-                "#116644",
-                "#ff0000",
-                "#ff5500",
-                "#212B36",
-                "#212B36",
-                "#f4f6f8",
-                "#000000"
+                "#212b36", //CodeMirror-code
+                "#aa5500", //cm-comment
+                "#aa1111", //cm-string
+                "#50248f", //cm-property
+                "#212b36", //cm-liquid
+                "#212b36", //cm-liquid-markup-delimiter
+                "#228811", //cm-liquid-string
+                "#212b36", //cm-liquid-filter
+                "#117700", //cm-tag
+                "#999977", //cm-bracket
+                "#0000cc", //cm-attribute
+                "#555555", //cm-qualifier
+                "#555555", //cm-meta
+                "#0000ff", //cm-def
+                "#221199", //cm-liquid-atom
+                "#202e78", //cm-liquid-method
+                "#0055aa", //cm-variable-2
+                "#008855", //cm-variable-3
+                "#770088", //cm-keyword
+                "#116644", //cm-number
+                "#ff0000", //cm-error
+                "#ff5500", //cm-string-2
+                "#212B36", //cm-operator
+                "#212B36", //cm-variable
+                "#f4f6f8", //Active line background Colour
+                "#000000", //Cursor colour
+                "#3300aa" //cm-builtin
             ];
 
             var ids = update.css[0];
@@ -219,32 +221,33 @@ $(document).ready(function() {
     $('#darkMode').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
-                "#e0f5f5",
-                "#919EAB",
-                "#F49342",
-                "#9C6ADE",
-                "#47C1BF",
-                "#e0f5f5",
-                "#EEC200",
-                "#9C6ADE",
-                "#E0F5F5",
-                "#e0f5f5",
-                "#FFC58B",
-                "#B7ECEC",
-                "#e0f5f5",
-                "#FFC58B",
-                "#F49342",
-                "#B7ECEC",
-                "#FFC58B",
-                "#BBE5B3",
-                "#9c6ade",
-                "#EEC200",
-                "#DE3618",
-                "#ff5500",
-                "#E0F5F5",
-                "#61afef",
-                "#212b36",
-                "#ABB2BF"
+                "#e0f5f5", //CodeMirror-code
+                "#919EAB", //cm-comment
+                "#F49342", //cm-string
+                "#9C6ADE", //cm-property
+                "#47C1BF", //cm-liquid
+                "#e0f5f5", //cm-liquid-markup-delimiter
+                "#EEC200", //cm-liquid-string
+                "#9C6ADE", //cm-liquid-filter
+                "#E0F5F5", //cm-tag
+                "#e0f5f5", //cm-bracket
+                "#FFC58B", //cm-attribute
+                "#B7ECEC", //cm-qualifier
+                "#e0f5f5", //cm-meta
+                "#FFC58B", //cm-def
+                "#F49342", //cm-liquid-atom
+                "#B7ECEC", //cm-liquid-method
+                "#FFC58B", //cm-variable-2
+                "#BBE5B3", //cm-variable-3
+                "#9c6ade", //cm-keyword
+                "#EEC200", //cm-number
+                "#DE3618", //cm-error
+                "#ff5500", //cm-string-2
+                "#E0F5F5", //cm-operator
+                "#61afef", //cm-variable
+                "#212b36", //Active line background Colour
+                "#ABB2BF", //Cursor colour
+                "#3300aa" //cm-builtin
             ];
 
             var ids = update.css[0];
@@ -261,36 +264,84 @@ $(document).ready(function() {
         });
     });
 
-    // Click function for Old school editor colours preset
+    // Click function for Atom editor colours preset
     $('#atompreset').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
-                "#ABB2BF",
-                "#ABB2BF",
-                "#98C379",
-                "#C678DD",
-                "#61AFEF",
-                "#ABB2BF",
-                "#EEC200",
-                "#C678DD",
-                "#E06C75",
-                "#ABB2BF",
-                "#D19A66",
-                "#56B6C2",
-                "#56B6C2",
-                "#61AFEF",
-                "#F49342",
-                "#56B6C2",
-                "#FFC58B",
-                "#BBE5B3",
-                "#C678DD",
-                "#EEC200",
-                "#DE3618",
-                "#FF5500",
-                "#56B6C2",
-                "#61AFEF",
-                "#212b36",
-                "#ABB2BF"
+                "#ABB2BF",//CodeMirror-code
+                "#ABB2BF",//cm-comment
+                "#98C379",//cm-string
+                "#C678DD",//cm-property
+                "#61AFEF",//cm-liquid
+                "#ABB2BF",//cm-liquid-markup-delimiter
+                "#EEC200",//cm-liquid-string
+                "#C678DD",//cm-liquid-filter
+                "#E06C75",//cm-tag
+                "#ABB2BF",//cm-bracket
+                "#D19A66",//cm-attribute
+                "#56B6C2",//cm-qualifier
+                "#56B6C2",//cm-meta
+                "#61AFEF",//cm-def
+                "#F49342",//cm-liquid-atom
+                "#56B6C2",//cm-liquid-method
+                "#FFC58B",//cm-variable-2
+                "#BBE5B3",//cm-variable-3
+                "#C678DD",//cm-keyword
+                "#EEC200",//cm-number
+                "#DE3618",//cm-error
+                "#FF5500",//cm-string-2
+                "#56B6C2",//cm-operator
+                "#61AFEF",//cm-variable
+                "#212b36",//Active line background Colour
+                "#ABB2BF",//Cursor colour
+                "#9579e2"//cm-builtin
+            ];
+
+            var ids = update.css[0];
+            var i = 0;
+
+            for (i = 0; i < cssValue.length; i++){
+                var element = document.getElementById(ids[i]);
+                element.value = cssValue[i];
+            };
+            $('#dark-mode').prop('checked', true);
+            $('#fullscreen').prop('checked', false);
+
+            setTimeout(_updatePreview, 500);
+        });
+    });
+
+    // Click function for Dracula Dark Theme colours preset
+    $('#draculapreset').on('click', function() {
+        chrome.storage.sync.get(["css"], function(update) {
+            var cssValue = [
+                "#ABB2BF",//CodeMirror-code
+                "#6272A4",//cm-comment
+                "#F1FA8C",//cm-string
+                "#66D9EF",//cm-property
+                "#61AFEF",//cm-liquid
+                "#50FA7B",//cm-liquid-markup-delimiter
+                "#FF79C6",//cm-liquid-string
+                "#66D9EF",//cm-liquid-filter
+                "#FF79C6",//cm-tag
+                "#ABB2BF",//cm-bracket
+                "#50FA7B",//cm-attribute
+                "#50FA7B",//cm-qualifier
+                "#F8F8F2",//cm-meta
+                "#50FA7B",//cm-def
+                "#BD93F9",//cm-liquid-atom
+                "#DEF993",//cm-liquid-method
+                "#FFFFFF",//cm-variable-2
+                "#FFB86C",//cm-variable-3
+                "#FF79C6",//cm-keyword
+                "#BD93F9",//cm-number
+                "#DE3618",//cm-error
+                "#F1FA8C",//cm-string-2
+                "#FF79C6",//cm-operator
+                "#50FA7B",//cm-variable
+                "#212B36",//Active line background Colour
+                "#ABB2BF",//Cursor colour
+                "#50FA7B"//cm-builtin
             ];
 
             var ids = update.css[0];
