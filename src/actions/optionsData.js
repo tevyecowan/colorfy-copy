@@ -18,6 +18,7 @@ function _updatePickers() {
       // console.log(update.css);
         var ids = update.css[0];
         var values = update.css[1];
+        var properties = update.css[2];
         var dmState = update.darkMode;
         var fsState = update.fullscreenMode;
         var i = 0;
@@ -42,11 +43,14 @@ function _updatePickers() {
 
 // Check Chrome storage for values and set defaults if none are saved
 function _checkStorage() {
-    chrome.storage.sync.get(["css", "darkMode"], function(edit) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(edit) {
       // console.log(edit);
         if (edit.css === undefined) {
             var cssName = $('.css-values').map(function() {
                 return $(this).attr("id");
+            }).toArray();
+            var cssProperties = $('.css-values').map(function() {
+                return $(this).data("css");
             }).toArray();
             var cssValue = [
                 "#212b36",
@@ -72,11 +76,14 @@ function _checkStorage() {
                 "#bf0711",
                 "#ff5500",
                 "#212B36",
-                "#212B36"
+                "#212B36",
+                "#f4f6f8",
+                "#000000"
             ];
             var css = [];
               css[0] = cssName;
               css[1] = cssValue;
+              css[2] = cssProperties;
 
             if (edit.darkMode == undefined) {
                 var darkMode = false;
@@ -143,6 +150,9 @@ $(document).ready(function() {
         var cssName = $('.css-values').map(function() {
             return $(this).attr("id");
         }).toArray();
+        var cssProperties = $('.css-values').map(function() {
+            return $(this).data("css");
+        }).toArray();
         var cssValue = $('.css-values').map(function() {
             return $(this).val();
         }).toArray();
@@ -150,6 +160,7 @@ $(document).ready(function() {
         var css = [];
           css[0] = cssName;
           css[1] = cssValue;
+          css[2] = cssProperties;
 
         var darkMode = $('#dark-mode').prop('checked');
         var fullscreenMode = $('#fullscreen').prop('checked');
@@ -185,7 +196,9 @@ $(document).ready(function() {
                 "#ff0000",
                 "#ff5500",
                 "#212B36",
-                "#212B36"
+                "#212B36",
+                "#f4f6f8",
+                "#000000"
             ];
 
             var ids = update.css[0];
@@ -229,7 +242,9 @@ $(document).ready(function() {
                 "#DE3618",
                 "#ff5500",
                 "#E0F5F5",
-                "#61afef"
+                "#61afef",
+                "#212b36",
+                "#ABB2BF"
             ];
 
             var ids = update.css[0];
@@ -273,7 +288,9 @@ $(document).ready(function() {
                 "#DE3618",
                 "#FF5500",
                 "#56B6C2",
-                "#61AFEF"
+                "#61AFEF",
+                "#212b36",
+                "#ABB2BF"
             ];
 
             var ids = update.css[0];

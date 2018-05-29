@@ -18,6 +18,9 @@ function _applyCss() {
 
       var values = edit.css[1];
 
+      var properties = edit.css[2];
+      console.log(properties);
+
       var dmState = edit.darkMode;
 
       var fsState = edit.fullscreenMode;
@@ -59,7 +62,7 @@ function _applyCss() {
       var index = 0;
       for (index = 0; index < classes.length; index++){
           var cssClass = "." + classes[index];
-          var cssValue = "color: " + values[index] + " !important";
+          var cssValue = properties[index] + ": " + values[index] + " !important";
           addCSSRule(document.styleSheets[cssFile], cssClass, cssValue, 0);
       }
 
