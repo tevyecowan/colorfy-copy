@@ -19,7 +19,6 @@ function _applyCss() {
       var values = edit.css[1];
 
       var properties = edit.css[2];
-      console.log(properties);
 
       var dmState = edit.darkMode;
 
