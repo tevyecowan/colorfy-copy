@@ -15,7 +15,6 @@ function saveData(savedCss, dmState, fsState) {
 // Grab the colour values in chrome storage and update the inputs
 function _updatePickers() {
     chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(update) {
-      // console.log(update.css);
         var ids = update.css[0];
         var values = update.css[1];
         var properties = update.css[2];
