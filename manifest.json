@@ -53,6 +53,15 @@
         "*/editor",
         "*/language"
       ]
+    },
+    {
+      "matches": [
+        "https://shopify.zendesk.com/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/zendesk.js"
+      ]
     }
   ],
   "commands": {
