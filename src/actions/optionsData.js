@@ -1,10 +1,12 @@
 /* Base Javascript for the Colorfy Chrome extension Settings page */
 
 // Save the current input values to the Chrome storage
-function saveData(savedCss, dmState, fsState) {
+function saveData(savedCss, dmState, fsState, dmStateZD, dmStateSlack) {
     chrome.storage.sync.set({
         "css": savedCss,
         "darkMode": dmState,
+        "darkModeZD": dmStateZD,
+        "darkModeSlack": dmStateSlack,
         "fullscreenMode": fsState
 
     }, function() {
@@ -14,11 +16,13 @@ function saveData(savedCss, dmState, fsState) {
 
 // Grab the colour values in chrome storage and update the inputs
 function _updatePickers() {
-    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(update) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack"], function(update) {
         var ids = update.css[0];
         var values = update.css[1];
         var properties = update.css[2];
         var dmState = update.darkMode;
+        var dmStateZD = update.darkModeZD;
+        var dmStateSlack = update.darkModeSlack;
         var fsState = update.fullscreenMode;
         var i = 0;
 
@@ -31,6 +35,16 @@ function _updatePickers() {
         } else {
             $('#dark-mode').prop('checked', false);
         }
+        if (dmStateZD == true) {
+            $('#dark-mode-zd').prop('checked', true);
+        } else {
+            $('#dark-mode-zd').prop('checked', false);
+        }
+        if (dmStateSlack == true) {
+            $('#dark-mode-slack').prop('checked', true);
+        } else {
+            $('#dark-mode-slack').prop('checked', false);
+        }
         if (fsState == true) {
             $('#fullscreen').prop('checked', true);
         } else {
@@ -42,7 +56,7 @@ function _updatePickers() {
 
 // Check Chrome storage for values and set defaults if none are saved
 function _checkStorage() {
-    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode"], function(edit) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack"], function(edit) {
       // console.log(edit);
         if (edit.css === undefined) {
             var cssName = $('.css-values').map(function() {
@@ -88,12 +102,18 @@ function _checkStorage() {
             if (edit.darkMode == undefined) {
                 var darkMode = false;
             }
+            if (edit.darkModeZD == undefined) {
+                var darkModeZD = false;
+            }
+            if (edit.darkModeSlack == undefined) {
+                var darkModeSlack = false;
+            }
             if (edit.fullscreenMode == undefined) {
                 var fullscreenMode = false;
             }
 
 
-            saveData(css, darkMode, fullscreenMode);
+            saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack);
         }
     });
 }
@@ -163,10 +183,12 @@ $(document).ready(function() {
           css[2] = cssProperties;
 
         var darkMode = $('#dark-mode').prop('checked');
+        var darkModeZD = $('#dark-mode-zd').prop('checked');
+        var darkModeSlack = $('#dark-mode-slack').prop('checked');
         var fullscreenMode = $('#fullscreen').prop('checked');
 
 
-        saveData(css, darkMode, fullscreenMode);
+        saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack);
     });
 
     // Click function for Old school editor colours preset
@@ -360,7 +382,7 @@ $(document).ready(function() {
     // Default reset button function
     $('#reset').on('click', function() {
         if ($(this).text() == 'Are you sure?') {
-          chrome.storage.sync.remove(["css", "darkMode"], function() {
+          chrome.storage.sync.remove(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack"], function() {
             $('#reset').text('Reset to default');
             _checkStorage();
             setTimeout(_updatePickers, 1000);
