@@ -55,6 +55,7 @@ function _zendeskDarkMode() {
            css += '.inline_message_input_container {background-color: #545454!important};';
            css += '.menu ul li a:not(.inline_menu_link) {color: #e6e6e6!important};';
            css += '.comment_input:not(.is-public) textarea:focus {border-color: blue!important; border-width: 3px;}';
+           css += '.comment_input:not(.is-public) textarea {background-color: #fbdf87!important}';
            $("<style></style>").appendTo('head').html(css);
          }
        });
