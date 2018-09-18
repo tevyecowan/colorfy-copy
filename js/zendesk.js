@@ -31,7 +31,9 @@ function _zendeskDarkMode() {
       '.status span {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
-      '-ms-filter: invert(100%); }',
+      '-ms-filter: invert(100%); }' +
+      '.comment_input:not(.is-public) textarea:focus {border-color: blue!important; border-width: 3px;}' +
+      '.comment_input:not(.is-public) textarea {background-color: #fbdf87!important}',
 
       head = document.getElementsByTagName('head')[0],
       style = document.createElement('style');
@@ -54,8 +56,6 @@ function _zendeskDarkMode() {
          success: function(css) {
            css += '.inline_message_input_container {background-color: #545454!important};';
            css += '.menu ul li a:not(.inline_menu_link) {color: #e6e6e6!important};';
-           css += '.comment_input:not(.is-public) textarea:focus {border-color: blue!important; border-width: 3px;}';
-           css += '.comment_input:not(.is-public) textarea {background-color: #fbdf87!important}';
            $("<style></style>").appendTo('head').html(css);
          }
        });
