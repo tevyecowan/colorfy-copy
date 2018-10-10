@@ -50,16 +50,14 @@ function _zendeskDarkMode() {
     }
 
     else if (dmStateSlack == true && slack == true) {
-
        $.ajax({
-         url: 'https://raw.githubusercontent.com/laCour/slack-night-mode/master/css/raw/black.css',
+         url: 'https://raw.githubusercontent.com/Shopify/Colorfy/master/css/slack_dark_mode.css?token=AfwS_5b8tHwPVJhZdAcm4FoTOe_24eM8ks5bx3qdwA%3D%3D',
          success: function(css) {
            css += '.inline_message_input_container {background-color: #545454!important};';
            css += '.menu ul li a:not(.inline_menu_link) {color: #e6e6e6!important};';
            $("<style></style>").appendTo('head').html(css);
          }
        });
-
     }
 
   });
