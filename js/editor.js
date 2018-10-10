@@ -42,10 +42,11 @@ function _applyCss() {
           $('main').addClass('theme-editor--dark');
           addCSSRule(document.styleSheets[cssFile], '.asset-search', 'background-color: inherit !important', 0);
           addCSSRule(document.styleSheets[cssFile], '.CodeMirror-lines', 'background-color: #0e1216 !important', 0);
-          $('.ui-app-frame__aside').css('background-color', '#0e1216');
+          $('#AppFrameNav nav').css('background-color', '#0e1216');
           $('.jkC4a').css('background-color', '#0e1216');
           _cssHover($('._1f6E2'), 'fill');
-          _cssHover($('._2Eqdn'), 'color');
+          _cssHover($('#AppFrameNav nav button'), 'fill')
+          _cssHover($('#AppFrameNav nav span'), 'color');
           _cssHover($('.ui-nav__link--parent.ui-nav__link--parent.ui-button--link'), 'color');
           _cssHover($('.ui-nav__link--parent.ui-nav__link--parent'), 'color');
 
