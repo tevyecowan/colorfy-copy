@@ -7,33 +7,34 @@ function _zendeskDarkMode() {
     var slack = url.includes("slack");
 
     if (dmStateZD == true && zendesk == true) {
-      var css = 'html {-webkit-filter: invert(100%);' +
+      document.querySelector('body').classList.add('colorfy__enabled');
+      var css = 'body.colorfy__enabled {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      'img {-webkit-filter: invert(100%);' +
+      '.colorfy__enabled img {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      '#main_navigation {-webkit-filter: invert(100%);' +
+      '.colorfy__enabled #main_navigation {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      '#main_navigation img {-webkit-filter: invert(0%);' +
+      '.colorfy__enabled #main_navigation img {-webkit-filter: invert(0%);' +
       '-moz-filter: invert(0%);' +
       '-o-filter: invert(0%);' +
       '-ms-filter: invert(0%); }' +
-      '.pane.right.section {background-color: #fff}' +
-      '.ticket_status_label {-webkit-filter: invert(100%);' +
+      '.colorfy__enabled .pane.right.section {background-color: #fff}' +
+      '.colorfy__enabled .ticket_status_label {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      '.status span {-webkit-filter: invert(100%);' +
+      '.colorfy__enabled .status span {-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      '.comment_input:not(.is-public) textarea:focus {border-color: blue!important; border-width: 3px;}' +
-      '.comment_input:not(.is-public) textarea {background-color: #fbdf87!important}',
+      '.colorfy__enabled .comment_input:not(.is-public) textarea:focus {border-color: blue!important; border-width: 3px;}' +
+      '.colorfy__enabled .comment_input:not(.is-public) textarea {background-color: #fbdf87!important}',
 
       head = document.getElementsByTagName('head')[0],
       style = document.createElement('style');

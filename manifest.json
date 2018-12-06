@@ -32,7 +32,8 @@
     "notifications",
     "identity",
     "identity.email",
-    "https://*.myshopify.com/admin/themes/*"
+    "https://*.myshopify.com/admin/themes/*",
+    "https://shopify.zendesk.com/*"
   ],
   "content_scripts": [
     {
