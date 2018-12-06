@@ -1,7 +1,7 @@
 {
   "name": "Colorfy",
-  "version": "3.1",
-  "manifest_version": 2,
+  "version": "3.2",
+  "manifest_version": 3,
   "description": "This extension will allow dark mode for Shopify code editor or custom CSS",
   "homepage_url": "https://support.shopify.com",
   "icons": {
@@ -15,7 +15,8 @@
     "open_in_tab": true
   },
   "browser_action": {
-    "default_icon": "icons/color_wheel_128.png"
+    "default_icon": "icons/color_wheel_128.png",
+    "default_popup": "src/actions/popup-settings.html"
   },
   "default_locale": "en",
   "background": {
