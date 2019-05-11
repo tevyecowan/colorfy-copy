@@ -33,7 +33,8 @@
     "identity",
     "identity.email",
     "https://*.myshopify.com/admin/themes/*",
-    "https://shopify.zendesk.com/*"
+    "https://shopify.zendesk.com/*",
+    "https://github.com/*"
   ],
   "content_scripts": [
     {
@@ -59,7 +60,8 @@
     {
       "matches": [
         "https://shopify.zendesk.com/*",
-        "https://shopify.slack.com/*"
+        "https://shopify.slack.com/*",
+        "https://github.com/*"
       ],
       "js": [
         "js/jquery/jquery.min.js",
@@ -71,7 +73,7 @@
     "fullscreen": {
       "suggested_key": {
         "default": "Alt+Shift+F",
-        "mac": "MacCtrl+Shift+F"
+        "mac": "Command+Shift+F"
       },
       "description": "Fullscreen editor"
     }

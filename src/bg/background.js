@@ -39,6 +39,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.commands.onCommand.addListener(function(command) {
   try {
     runFullscreen(command);
+    console.log(`${command} excuted`);
   } catch (error){
     console.log(`No action for ${command}`);
   }
