@@ -91,7 +91,7 @@ function _zendeskDarkMode() {
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
       'body.colorfy__enabled {background-color: #000;}' +
-      'body.colorfy__enabled .btn-primary, body.colorfy__enabled .IssueLabel, body.colorfy__enabled .octicon-issue-opened, body.colorfy__enabled .progress-bar{-webkit-filter: invert(100%);' +
+      'body.colorfy__enabled .btn-primary, body.colorfy__enabled .IssueLabel, body.colorfy__enabled .octicon-issue-opened, body.colorfy__enabled .progress-bar, g-emoji{-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
