@@ -20,7 +20,7 @@ function _updatePickers() {
     chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub"], function(update) {
         var ids = update.css[0];
         var values = update.css[1];
-        var properties = update.css[2];
+        // var properties = update.css[2]; Not used in this function
         var dmState = update.darkMode;
         var dmStateZD = update.darkModeZD;
         var dmStateSlack = update.darkModeSlack;
@@ -99,7 +99,9 @@ function _checkStorage() {
                 "#212B36", //cm-variable
                 "#f4f6f8", //Active line background Colour
                 "#000000", //Cursor colour
-                "#3300aa" //cm-builtin
+                "#3300aa", //cm-builtin
+                "#bbe5b3", //Diffy added background
+                "#feaf9a" //Diffy removed background
             ];
             var css = [];
               css[0] = cssName;
@@ -132,9 +134,10 @@ function _checkStorage() {
 function _updatePreview() {
 
     $('.css-values').each(function() {
-        var i = "." + $(this).prop("id");
-        var c = $(this).prop("value");
-        $(i).css("color", c);
+        var previewClass = `.${$(this).prop("id")}`;
+        var previewValue = $(this).prop("value");
+        var previewStyle = $(this).data('css');
+        $(previewClass).css(previewStyle, previewValue);
     })
     if ($("#dark-mode").prop("checked") == true) {
             $(".code-block").addClass("preview-dark_mode");
@@ -178,12 +181,15 @@ $(document).ready(function() {
         }, 3000);
 
         var cssName = $('.css-values').map(function() {
+            console.log($(this).attr("id"));
             return $(this).attr("id");
         }).toArray();
         var cssProperties = $('.css-values').map(function() {
+            console.log($(this).data("css"));
             return $(this).data("css");
         }).toArray();
         var cssValue = $('.css-values').map(function() {
+            console.log($(this).val());
             return $(this).val();
         }).toArray();
 
@@ -200,39 +206,42 @@ $(document).ready(function() {
 
 
         saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack, darkModeGithub);
+        setTimeout(_updatePreview, 500);
     });
 
     // Click function for Old school editor colours preset
     $('#oldSchool').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
-                "#212b36", //CodeMirror-code
-                "#aa5500", //cm-comment
-                "#aa1111", //cm-string
-                "#50248f", //cm-property
-                "#212b36", //cm-liquid
-                "#212b36", //cm-liquid-markup-delimiter
-                "#228811", //cm-liquid-string
-                "#212b36", //cm-liquid-filter
-                "#117700", //cm-tag
-                "#999977", //cm-bracket
-                "#0000cc", //cm-attribute
-                "#555555", //cm-qualifier
-                "#555555", //cm-meta
-                "#0000ff", //cm-def
-                "#221199", //cm-liquid-atom
-                "#202e78", //cm-liquid-method
-                "#0055aa", //cm-variable-2
-                "#008855", //cm-variable-3
-                "#770088", //cm-keyword
-                "#116644", //cm-number
-                "#ff0000", //cm-error
-                "#ff5500", //cm-string-2
-                "#212B36", //cm-operator
-                "#212B36", //cm-variable
-                "#f4f6f8", //Active line background Colour
-                "#000000", //Cursor colour
-                "#3300aa" //cm-builtin
+                "#212b36",//CodeMirror-code
+                "#aa5500",//cm-comment
+                "#aa1111",//cm-string
+                "#50248f",//cm-property
+                "#212b36",//cm-liquid
+                "#212b36",//cm-liquid-markup-delimiter
+                "#228811",//cm-liquid-string
+                "#212b36",//cm-liquid-filter
+                "#117700",//cm-tag
+                "#999977",//cm-bracket
+                "#0000cc",//cm-attribute
+                "#555555",//cm-qualifier
+                "#555555",//cm-meta
+                "#0000ff",//cm-def
+                "#221199",//cm-liquid-atom
+                "#202e78",//cm-liquid-method
+                "#0055aa",//cm-variable-2
+                "#008855",//cm-variable-3
+                "#770088",//cm-keyword
+                "#116644",//cm-number
+                "#ff0000",//cm-error
+                "#ff5500",//cm-string-2
+                "#212B36",//cm-operator
+                "#212B36",//cm-variable
+                "#f4f6f8",//Active line background Colour
+                "#000000",//Cursor colour
+                "#3300aa",//cm-builtin
+                "#bbe5b3",//Diffy added background
+                "#feaf9a"//Diffy removed background
             ];
 
             var ids = update.css[0];
@@ -253,33 +262,35 @@ $(document).ready(function() {
     $('#darkMode').on('click', function() {
         chrome.storage.sync.get(["css"], function(update) {
             var cssValue = [
-                "#e0f5f5", //CodeMirror-code
-                "#919EAB", //cm-comment
-                "#F49342", //cm-string
-                "#9C6ADE", //cm-property
-                "#47C1BF", //cm-liquid
-                "#e0f5f5", //cm-liquid-markup-delimiter
-                "#EEC200", //cm-liquid-string
-                "#9C6ADE", //cm-liquid-filter
-                "#E0F5F5", //cm-tag
-                "#e0f5f5", //cm-bracket
-                "#FFC58B", //cm-attribute
-                "#B7ECEC", //cm-qualifier
-                "#e0f5f5", //cm-meta
-                "#FFC58B", //cm-def
-                "#F49342", //cm-liquid-atom
-                "#B7ECEC", //cm-liquid-method
-                "#FFC58B", //cm-variable-2
-                "#BBE5B3", //cm-variable-3
-                "#9c6ade", //cm-keyword
-                "#EEC200", //cm-number
-                "#DE3618", //cm-error
-                "#ff5500", //cm-string-2
-                "#E0F5F5", //cm-operator
-                "#61afef", //cm-variable
-                "#212b36", //Active line background Colour
-                "#ABB2BF", //Cursor colour
-                "#3300aa" //cm-builtin
+                "#e0f5f5",//CodeMirror-code
+                "#919EAB",//cm-comment
+                "#F49342",//cm-string
+                "#9C6ADE",//cm-property
+                "#47C1BF",//cm-liquid
+                "#e0f5f5",//cm-liquid-markup-delimiter
+                "#EEC200",//cm-liquid-string
+                "#9C6ADE",//cm-liquid-filter
+                "#E0F5F5",//cm-tag
+                "#e0f5f5",//cm-bracket
+                "#FFC58B",//cm-attribute
+                "#B7ECEC",//cm-qualifier
+                "#e0f5f5",//cm-meta
+                "#FFC58B",//cm-def
+                "#F49342",//cm-liquid-atom
+                "#B7ECEC",//cm-liquid-method
+                "#FFC58B",//cm-variable-2
+                "#BBE5B3",//cm-variable-3
+                "#9c6ade",//cm-keyword
+                "#EEC200",//cm-number
+                "#DE3618",//cm-error
+                "#ff5500",//cm-string-2
+                "#E0F5F5",//cm-operator
+                "#61afef",//cm-variable
+                "#212b36",//Active line background Colour
+                "#ABB2BF",//Cursor colour
+                "#3300aa",//cm-builtin
+                "#bbe5b3",//Diffy added background
+                "#feaf9a"//Diffy removed background
             ];
 
             var ids = update.css[0];
@@ -326,7 +337,9 @@ $(document).ready(function() {
                 "#61AFEF",//cm-variable
                 "#212b36",//Active line background Colour
                 "#ABB2BF",//Cursor colour
-                "#9579e2"//cm-builtin
+                "#9579e2",//cm-builtin
+                "#bbe5b3",//Diffy added background
+                "#feaf9a"//Diffy removed background
             ];
 
             var ids = update.css[0];
@@ -373,7 +386,9 @@ $(document).ready(function() {
                 "#50FA7B",//cm-variable
                 "#212B36",//Active line background Colour
                 "#ABB2BF",//Cursor colour
-                "#50FA7B"//cm-builtin
+                "#50FA7B",//cm-builtin
+                "#bbe5b3",//Diffy added background
+                "#feaf9a"//Diffy removed background
             ];
 
             var ids = update.css[0];

@@ -66,9 +66,14 @@ function _applyCss() {
       //Run through the custom colours and add css overrides to the stylesheet
       var index = 0;
       for (index = 0; index < classes.length; index++){
-          // var cssClass = "." + classes[index];
+        console.log(classes[index]);
+        if (classes[index] == 'diffy-added' || classes[index] == 'diffy-removed') {
+          console.log("diffy element matched")
+          if (classes[index] == 'diffy-added') { var cssClass = '.colorfy__enabled .mergely.d.lhs' }
+          else { var cssClass = '.colorfy__enabled .mergely.rhs.a.CodeMirror-linebackground' }
+        } else {
           var cssClass = `.colorfy__enabled .${classes[index]}`
-          // var cssValue = properties[index] + ": " + values[index] + " !important";
+        }
           var cssValue = `${properties[index]}: ${values[index]}!important`;
           addCSSRule(document.styleSheets[cssFile], cssClass, cssValue, 0);
       }
@@ -79,7 +84,7 @@ function _applyCss() {
 
 // Add the custom colours to the stylesheet
 function addCSSRule(sheet, selector, rules, index) {
-		sheet.insertRule(selector + '{' + rules + '}', sheet.cssRules.length);
+		sheet.insertRule(`${selector}{${rules}}`, sheet.cssRules.length);
 	}
 
 $(document).ready(function() {

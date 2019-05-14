@@ -202,7 +202,14 @@
                     <label for="cm-builtin" title="id identifier in css">cm-builtin</label>
                     <input class="css-values" type="color" id="cm-builtin" name="cmbuiltin" data-css="color">
                 </li>
-
+                <li>
+                    <label for="diffy-added" title="id identifier in css">Diffy Added highlight</label>
+                    <input class="css-values" type="color" id="diffy-added" name="diffyAdded" data-css="background-color" value="#bbe5b3">
+                </li>
+                <li>
+                    <label for="diffy-removed" title="id identifier in css">Diffy removed Highlight</label>
+                    <input class="css-values" type="color" id="diffy-removed" name="diffyRemoved" data-css="background-color" value="#feaf9a">
+                </li>
             </ul>
 
         </div>
@@ -230,6 +237,32 @@
                 <span class="cm-variable">theme</span>.<span class="cm-property">Currency</span> <span class="cm-operator">=</span> (<span class="cm-keyword">function</span>() &#123;<br>
                 &nbsp;&nbsp;<span class="cm-keyword">var</span> <span class="cm-def">moneyFormat</span> <span class="cm-operator">=</span> <span class="cm-string">'$</span><span class="cm-liquid-markup-delimiter cm-liquid">{{</span><span class="cm-liquid-word cm-liquid-output-markup cm-liquid-variable cm-liquid">amount</span><span class="cm-liquid-markup-delimiter cm-liquid">}}</span><span class="cm-string">';</span><br>
                 &nbsp;&nbsp;<span class="cm-keyword">var</span> <span class="cm-def">placeholderRegex</span> <span class="cm-operator">=</span> <span class="cm-string-2">/\{\{\s*(\w+)\s*\}\}/</span>;
+            </p>
+            <p>
+                <span class="cm-comment">&#60;!--The following section covers Diffy add highlight--&#62;</span>
+            </p>
+            <p>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-tag-name cm-liquid">comment</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span><br>
+                &nbsp;&nbsp;<span class="cm-comment">The contents of the product.liquid template can be found in /sections/product-template.liquid</span><br>
+                <span class="cm-comment diffy-added">&nbsp;&nbsp;all of this is extra</span><br>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-tag-name cm-liquid">comment</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span><br>
+            </p>
+            <p>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid">section</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-string">'product-template'</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span>
+            </p>
+            <p>
+                <span class="cm-comment">&#60;!--The following section covers Diffy remove highlight--&#62;</span>
+            </p>
+            <p>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-tag-name cm-liquid">comment</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span><br>
+                &nbsp;&nbsp;<span class="cm-comment">The contents of the product.liquid template can be found in /sections/product-template.liquid</span><br>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-tag-name cm-liquid">comment</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span><br>
+            </p>
+            <p>
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid">section</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-string">'product-template'</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span>
+            </p>
+            <p class="diffy-removed">
+                <span class="cm-liquid-markup-delimiter">{%</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid">section</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-string">'related-products'</span><span class="cm-liquid-whitespace cm-liquid-tag-markup cm-liquid"> </span><span class="cm-liquid-markup-delimiter">%}</span>
             </p>
         </div>
     </body>
