@@ -91,7 +91,7 @@ function _zendeskDarkMode() {
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
       'body.colorfy__enabled {background-color: #000;}' +
-      'body.colorfy__enabled .btn-primary, body.colorfy__enabled .IssueLabel, body.colorfy__enabled .octicon-issue-opened, body.colorfy__enabled .progress-bar, g-emoji{-webkit-filter: invert(100%);' +
+      'body.colorfy__enabled .btn-primary, body.colorfy__enabled .IssueLabel, body.colorfy__enabled .octicon-issue-opened, body.colorfy__enabled .progress-bar, body.colorfy__enabled g-emoji, body.colorfy__enabled .label-select-menu-item .mr-2, body.colorfy__enabled .State{-webkit-filter: invert(100%);' +
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
@@ -103,7 +103,7 @@ function _zendeskDarkMode() {
       '-moz-filter: invert(100%);' +
       '-o-filter: invert(100%);' +
       '-ms-filter: invert(100%); }' +
-      '.colorfy__enabled #main_navigation img {-webkit-filter: invert(0%);' +
+      '.colorfy__enabled #main_navigation img, body.colorfy__enabled .State .octicon-issue-opened {-webkit-filter: invert(0%);' +
       '-moz-filter: invert(0%);' +
       '-o-filter: invert(0%);' +
       '-ms-filter: invert(0%); }',
