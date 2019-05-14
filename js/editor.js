@@ -66,9 +66,9 @@ function _applyCss() {
       //Run through the custom colours and add css overrides to the stylesheet
       var index = 0;
       for (index = 0; index < classes.length; index++){
-        console.log(classes[index]);
+        // console.log(classes[index]);
         if (classes[index] == 'diffy-added' || classes[index] == 'diffy-removed') {
-          console.log("diffy element matched")
+          // console.log("diffy element matched")
           if (classes[index] == 'diffy-added') { var cssClass = '.colorfy__enabled .mergely.d.lhs' }
           else { var cssClass = '.colorfy__enabled .mergely.rhs.a.CodeMirror-linebackground' }
         } else {
