@@ -25,6 +25,7 @@ colorfySettings.toggleColorfy = function() {
   colorfySettings.showColorfy = !colorfySettings.showColorfy;
   this.classList.toggle('disabled');
   // execute script on tab
+  console.log("This ran first");
   chrome.tabs.executeScript({
     file: 'src/actions/toggleColorfy.js'
   })
