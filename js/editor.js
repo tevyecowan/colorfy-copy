@@ -28,13 +28,6 @@ function _applyCss() {
 
       function _cssHover(selector, css) {
         selector = `.colorfy__enabled ${selector}`;
-        // $(selector)
-        // .css(css, '#c4cdd5')
-        // .hover(function() {
-        //     $(this).css(css, '#5c6ac4')
-        // }, function(){
-        //   $(this).css(css, '#c4cdd5')
-        // });
         addCSSRule(document.styleSheets[cssFile], selector, `${css}: #c4cdd5!important`);
         addCSSRule(document.styleSheets[cssFile], `${selector}:hover`, `${css}: #5c6ac4`);
       }
@@ -47,9 +40,9 @@ function _applyCss() {
 
           $('main.ui-app-frame__main').addClass('theme-editor--dark');
           addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled .asset-search', 'background-color: inherit !important', 0);
-          // addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled .CodeMirror-lines', 'background-color: #0e1216 !important', 0);
-          // addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled #AppFrameNav nav', 'background-color: #0e1216 !important', 0);
-          //   addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled .jkC4a', 'background-color: #0e1216 !important', 0);
+          addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled .CodeMirror-lines', 'background-color: #0e1216 !important', 0);
+          addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled #AppFrameNav nav', 'background-color: #0e1216 !important', 0);
+          addCSSRule(document.styleSheets[cssFile], '.colorfy__enabled .jkC4a', 'background-color: #0e1216 !important', 0);
           // $('.colorfy__enabled #AppFrameNav nav').css('background-color', '#0e1216');
           // $('.colorfy__enabled .jkC4a').css('background-color', '#0e1216');
           // _cssHover('._1f6E2', 'fill');
