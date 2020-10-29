@@ -62,7 +62,8 @@
       "matches": [
         "https://shopify.zendesk.com/*",
         "https://shopify.slack.com/*",
-        "https://github.com/*"
+        "https://github.com/*",
+        "https://app.getguru.com/*"
       ],
       "js": [
         "js/jquery/jquery.min.js",
