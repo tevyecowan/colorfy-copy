@@ -1,14 +1,15 @@
 /* Base Javascript for the Colorfy Chrome extension Settings page */
 
 // Save the current input values to the Chrome storage
-function saveData(savedCss, dmState, fsState, dmStateZD, dmStateSlack, dmStateGithub) {
+function saveData(savedCss, dmState, fsState, dmStateZD, dmStateSlack, dmStateGithub, dmStateGuru) {
     chrome.storage.sync.set({
         "css": savedCss,
         "darkMode": dmState,
         "darkModeZD": dmStateZD,
         "darkModeSlack": dmStateSlack,
         "fullscreenMode": fsState,
-        "darkModeGithub": dmStateGithub
+        "darkModeGithub": dmStateGithub,
+        "darkModeGuru": dmStateGuru
 
     }, function() {
        console.log('Saved!')
@@ -17,7 +18,7 @@ function saveData(savedCss, dmState, fsState, dmStateZD, dmStateSlack, dmStateGi
 
 // Grab the colour values in chrome storage and update the inputs
 function _updatePickers() {
-    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub"], function(update) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub", "darkModeGuru"], function(update) {
         var ids = update.css[0];
         var values = update.css[1];
         // var properties = update.css[2]; Not used in this function
@@ -26,6 +27,7 @@ function _updatePickers() {
         var dmStateSlack = update.darkModeSlack;
         var fsState = update.fullscreenMode;
         var dmStateGithub = update.darkModeGithub;
+        var dmStateGuru = update.darkModeGuru;
         var i = 0;
 
         for (i = 0; i < values.length; i++){
@@ -57,13 +59,18 @@ function _updatePickers() {
         } else {
             $('#dark-mode-github').prop('checked', false);
         }
+        if (dmStateGuru == true) {
+            $('#dark-mode-guru').prop('checked', true);
+        } else {
+            $('#dark-mode-guru').prop('checked', false);
+        }
         setTimeout(_updatePreview, 500);
     });
 }
 
 // Check Chrome storage for values and set defaults if none are saved
 function _checkStorage() {
-    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub"], function(edit) {
+    chrome.storage.sync.get(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub", "darkModeGuru"], function(edit) {
       // console.log(edit);
         if (edit.css === undefined) {
             var cssName = $('.css-values').map(function() {
@@ -123,9 +130,12 @@ function _checkStorage() {
             if (edit.darkModeGithub == undefined) {
                 var darkModeGithub = false;
             }
+            if (edit.darkModeGuru == undefined) {
+                var darkModeGuru = false;
+            }
 
 
-            saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack, darkModeGithub);
+            saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack, darkModeGithub, darkModeGuru);
         }
     });
 }
@@ -203,9 +213,10 @@ $(document).ready(function() {
         var darkModeSlack = $('#dark-mode-slack').prop('checked');
         var fullscreenMode = $('#fullscreen').prop('checked');
         var darkModeGithub = $('#dark-mode-github').prop('checked');
+        var darkModeGuru = $('#dark-mode-guru').prop('checked');
 
 
-        saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack, darkModeGithub);
+        saveData(css, darkMode, fullscreenMode, darkModeZD, darkModeSlack, darkModeGithub, darkModeGuru);
         setTimeout(_updatePreview, 500);
     });
 
@@ -408,7 +419,7 @@ $(document).ready(function() {
     // Default reset button function
     $('#reset').on('click', function() {
         if ($(this).text() == 'Are you sure?') {
-          chrome.storage.sync.remove(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub"], function() {
+          chrome.storage.sync.remove(["css", "darkMode", "fullscreenMode", "darkModeZD", "darkModeSlack", "darkModeGithub", "darkModeGuru"], function() {
             $('#reset').text('Reset to default');
             _checkStorage();
             setTimeout(_updatePickers, 1000);
