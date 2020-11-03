@@ -35,7 +35,8 @@
     "identity.email",
     "https://*.myshopify.com/admin/themes/*",
     "https://shopify.zendesk.com/*",
-    "https://github.com/*"
+    "https://github.com/*",
+    "https://app.getguru.com/*"
   ],
   "content_scripts": [
     {
@@ -62,7 +63,8 @@
       "matches": [
         "https://shopify.zendesk.com/*",
         "https://shopify.slack.com/*",
-        "https://github.com/*"
+        "https://github.com/*",
+        "https://app.getguru.com/*"
       ],
       "js": [
         "js/jquery/jquery.min.js",
